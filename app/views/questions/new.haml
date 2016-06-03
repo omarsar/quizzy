@@ -1,0 +1,10 @@
+.col-md-6.col-md-offset-3
+  .row
+    .panel.panel-default
+      .panel-heading
+        %h1 New Question
+      .panel-body
+        = render 'form'
+        /= render 'form', question: @question
+        %br
+        = link_to 'Back', questions_path

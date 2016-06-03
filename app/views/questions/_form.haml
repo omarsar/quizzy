@@ -1,0 +1,14 @@
+= simple_form_for @question, html: {multipart: true} do |f|
+  - if @question.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@question.errors.count, "error") #for errors presentation
+        prevented this Question from saving
+      %ul
+        - @question.errors.full_messages.each do |msg|
+          %li=msg
+
+  .form-group
+    = f.input :body,input_html: { class: 'form-control'}, placeholder: "Details of your question"
+
+  = f.button :submit, class: "btn btn-primary" #creates the button to submit
