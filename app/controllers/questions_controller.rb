@@ -7,9 +7,14 @@ class QuestionsController < ApplicationController
     @question = Question.all.sample
     
     @true_answer = @question.answer
-    @preliminary_choices = Answer.all.sample(4).map do |a| 
-      if a.body != @true_answer
-        a.body
+
+    @preliminary_choices = []
+
+    Answer.all.sample(6).map do |a| 
+      if a.body == @true_answer
+        puts "do nothing"
+      else
+        @preliminary_choices << a.body
       end 
     end
 
