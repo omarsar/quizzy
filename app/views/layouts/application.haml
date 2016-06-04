@@ -7,4 +7,22 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload' 
 
   %body
-    = yield
+    .container
+      .row
+        .col-md-8.col-md-offset-2
+          .panel.panel-default
+            .panel-body
+              .text-center
+                .col-md-12
+                  = link_to "<i class=\"fa fa-plus fa-fw fa-lg\" style=\"\"></i>New Question".html_safe, new_question_path, :class => "btn btn-success"
+                  %br
+                  %br
+                  = link_to "<i class=\"fa fa-plus fa-fw fa-lg\" style=\"\"></i>Take Quiz".html_safe, questions_path, :class => "btn btn-info"
+    .row
+      .col-md-8.col-md-offset-2
+        = flash_messages
+        -#- flash.each do |name, msg|
+          - if msg.is_a?(String)
+            = content_tag :div, msg, :class => "alert alert-info fade in"
+    .row
+      = yield
