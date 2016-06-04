@@ -1,0 +1,17 @@
+.col-md-8.col-md-offset-2
+  .row
+    .panel.panel-default
+      .panel-body
+        .text-center  
+          = form_for question, url: check_question_path(question.id), method: :put do |f|
+            %h3
+              = question.body
+
+            - choices.each do |c|
+              = radio_button_tag(:selected_answer, c)
+              = label_tag(:c, "#{c}")
+              = "  "
+
+            %br
+            = f.button :submit, class: "btn btn-primary" #creates the button to submit
+
