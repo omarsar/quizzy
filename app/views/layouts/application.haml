@@ -18,11 +18,11 @@
                   %br
                   %br
                   = link_to "<i class=\"fa fa-plus fa-fw fa-lg\" style=\"\"></i>Take Quiz".html_safe, questions_path, :class => "btn btn-info"
-    .row
-      .col-md-8.col-md-offset-2
-        = flash_messages
-        -#- flash.each do |name, msg|
-          - if msg.is_a?(String)
-            = content_tag :div, msg, :class => "alert alert-info fade in"
-    .row
-      = yield
+      .row
+        .col-md-8.col-md-offset-2
+          = flash_messages
+          -#- flash.each do |name, msg|
+            - if msg.is_a?(String)
+              = content_tag :div, msg, :class => "alert alert-info fade in"
+      .row
+        = yield
