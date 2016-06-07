@@ -19,6 +19,7 @@ class QuestionsController < ApplicationController
     end
 
     @multiple_choices = @preliminary_choices.sample(3) << @true_answer
+    @multiple_choices = @multiple_choices.shuffle
   end
 
   # GET /questions/1
